@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, "claude/puzzle-game-collection-l4xug8"]
   workflow_dispatch:
 
 permissions:
