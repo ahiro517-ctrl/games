@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>毎日パズル</title>
+<meta name="theme-color" content="#1d6fe0">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">🧩 毎日パズル</div>
+    <div class="streak" id="streakBadge" title="連続プレイ日数">🔥 0</div>
+  </div>
+</header>
+
+<main>
+  <!-- ホーム -->
+  <section id="home" class="screen active">
+    <div class="date-card" id="dateCard"></div>
+    <div class="cards" id="cards"></div>
+    <p class="foot">日付が変わると新しいパズルが登場します</p>
+  </section>
+
+  <!-- ジップ -->
+  <section id="game-zip" class="screen">
+    <div class="gamebar">
+      <button class="iconbtn" data-back>←</button>
+      <div class="gametitle">🌻 ジップ</div>
+      <button class="iconbtn" id="zipReset">↺</button>
+    </div>
+    <p class="hint">1から順に数字をつないで、すべてのマスを通ろう。指でなぞって線を伸ばす。戻るとやり直せるよ。</p>
+    <div class="board-wrap"><div id="zipBoard" class="zip-board"></div></div>
+  </section>
+
+  <!-- サムズ -->
+  <section id="game-sums" class="screen">
+    <div class="gamebar">
+      <button class="iconbtn" data-back>←</button>
+      <div class="gametitle">⭐ サムズ</div>
+      <button class="iconbtn" id="sumsReset">↺</button>
+    </div>
+    <p class="hint">数字をタップして消し、残った数字の合計を右と下の目標に合わせよう。</p>
+    <div class="board-wrap"><div id="sumsBoard" class="sums-board"></div></div>
+  </section>
+
+  <!-- ミニ数独 -->
+  <section id="game-sudoku" class="screen">
+    <div class="gamebar">
+      <button class="iconbtn" data-back>←</button>
+      <div class="gametitle">🌸 ミニ数独</div>
+      <button class="iconbtn" id="sudokuReset">↺</button>
+    </div>
+    <p class="hint">各行・各列・各ブロックに 1〜6 を1つずつ入れよう。</p>
+    <div class="board-wrap">
+      <div id="sudokuBoard" class="sudoku-board"></div>
+      <div id="sudokuPad" class="numpad"></div>
+    </div>
+  </section>
+
+  <!-- パンダ -->
+  <section id="game-panda" class="screen">
+    <div class="gamebar">
+      <button class="iconbtn" data-back>←</button>
+      <div class="gametitle">🐼 パンダ</div>
+      <button class="iconbtn" id="pandaReset">↺</button>
+    </div>
+    <p class="hint">タップで 🐼 と 🎍 を置こう。各行・各列に3つずつ。同じものを3つ続けて並べるのはNG。</p>
+    <div class="board-wrap"><div id="pandaBoard" class="panda-board"></div></div>
+  </section>
+
+  <!-- ライツ -->
+  <section id="game-lights" class="screen">
+    <div class="gamebar">
+      <button class="iconbtn" data-back>←</button>
+      <div class="gametitle">💡 ライツ</div>
+      <button class="iconbtn" id="lightsReset">↺</button>
+    </div>
+    <p class="hint">タップすると、そのマスと上下左右のライトが切り替わる。すべてのライトを消そう！</p>
+    <div class="board-wrap">
+      <div class="statusline" id="lightsStatus"></div>
+      <div id="lightsBoard" class="lights-board"></div>
+    </div>
+  </section>
+
+  <!-- 2048 -->
+  <section id="game-2048" class="screen">
+    <div class="gamebar">
+      <button class="iconbtn" data-back>←</button>
+      <div class="gametitle">🔢 2048</div>
+      <button class="iconbtn" id="g2048Reset">↺</button>
+    </div>
+    <p class="hint">スワイプ（または矢印キー）でタイルを動かし、同じ数字を合体させて 2048 を目指そう。</p>
+    <div class="board-wrap">
+      <div class="statusline"><span id="g2048Score">スコア 0</span><span id="g2048Best">ベスト 0</span></div>
+      <div id="g2048Board" class="g2048-board"></div>
+    </div>
+  </section>
+</main>
+
+<!-- クリアモーダル -->
+<div id="clearModal" class="modal hidden">
+  <div class="modal-box">
+    <div class="modal-emoji" id="clearEmoji">🎉</div>
+    <h2 id="clearTitle">クリア！</h2>
+    <p id="clearText"></p>
+    <div class="modal-btns">
+      <button id="clearHomeBtn" class="btn primary">ホームへ</button>
+      <button id="clearRetryBtn" class="btn">もう一度</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/zip.js"></script>
+<script src="js/sums.js"></script>
+<script src="js/sudoku.js"></script>
+<script src="js/panda.js"></script>
+<script src="js/lights.js"></script>
+<script src="js/game2048.js"></script>
+<script>App.init();</script>
+</body>
+</html>
